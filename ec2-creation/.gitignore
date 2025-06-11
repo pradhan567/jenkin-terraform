@@ -1,3 +1,6 @@
 # Ignore all .terraform directories
 .terraform/
 
+## Ignore stop-jenkins.tf file
+stop-jenkins.tf
+
