@@ -4,3 +4,6 @@
 ## Ignore stop-jenkins.tf file
 stop-jenkins.tf
 
+## Ignore pem files
+*.pem
+
