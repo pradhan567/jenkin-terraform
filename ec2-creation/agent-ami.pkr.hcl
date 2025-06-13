@@ -8,12 +8,15 @@ packer {
 }
 
 source "amazon-ebs" "ubuntu" {
-  ami_name          = "agent-ami-1"
+  ami_name          = "agent-ami"
   instance_type     = "t2.micro"
   region            = "ap-south-1"
   availability_zone = "ap-south-1a"
   source_ami        = "ami-0f918f7e67a3323f0"
   ssh_username      = "ubuntu"
+  tags = {
+    Name = "agent-ami"
+  }
 }
 
 build {

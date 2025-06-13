@@ -11,15 +11,18 @@ resource "aws_launch_template" "jen-template" {
 }
 
 resource "aws_autoscaling_group" "jenkins_asg" {
+  name                 = "jenkins-asg"
   launch_template {
     id      = aws_launch_template.jen-template.id
     version = "$Latest"
   }
-  availability_zones = "ap-south-1a"
+  availability_zones = ["ap-south-1a"]
   min_size           = 0
   max_size           = 1
   desired_capacity   = 0
-  tags = {
-    Name = "jenkins"
+  tag {
+    key                 = "Name"
+    value               = "jenkins-asg-instance"
+    propagate_at_launch = true
   }
 }

@@ -11,7 +11,7 @@ resource "null_resource" "stop_jenkins_remote" {
       type        = "ssh"
       host        = self.triggers.instance_ip
       user        = "ec2-user"
-      private_key = file("C:\\Users\\mpradha\\Documents\\Terraform\\jenkin-terraform\\ec2-creation\\manas-terraform-learning.pem")
+      private_key = file("manas-terraform-learning.pem")
     }
   }
 }
