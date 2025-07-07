@@ -1,6 +1,6 @@
 resource "aws_launch_template" "jen-template" {
   name                   = "jenkins-template"
-  image_id               = "agent-ami"
+  image_id               = "ami-0458600c4d65d2744"
   instance_type          = "t2.micro"
   key_name               = "manas-terraform-learning"
   vpc_security_group_ids = [aws_security_group.jenkins_sg.id]
