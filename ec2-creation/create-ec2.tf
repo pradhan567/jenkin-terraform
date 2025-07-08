@@ -5,7 +5,7 @@ resource "aws_instance" "terra" {
   key_name             = "manas-terraform-learning"
   security_groups      = [aws_security_group.jenkins_sg.name]
   iam_instance_profile = aws_iam_instance_profile.jenkins_instance_profile.name
-  user_data            = file("${path.module}/install_jenkins.sh")
+  user_data            = templatefile("${path.module}/user_data.tpl", {})
   tags = {
     Name      = "jenkins"
     ManagedBy = "Terraform"

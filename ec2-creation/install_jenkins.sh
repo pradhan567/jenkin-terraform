@@ -1,5 +1,6 @@
 #!/bin/bash
-yum update -y
+# yum update -y
+yum install -y cronie
 yum install docker -y
 systemctl start docker
 systemctl enable docker
