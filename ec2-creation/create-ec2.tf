@@ -3,9 +3,11 @@ resource "aws_instance" "terra" {
   instance_type        = "t2.micro"
   availability_zone    = "ap-south-1a"
   key_name             = "manas-terraform-learning"
-  security_groups      = [aws_security_group.jenkins_sg.name]
+  subnet_id            = aws_subnet.private-sub-1.id
+  associate_public_ip_address = false
+  vpc_security_group_ids = [aws_security_group.jenkins_sg.id]
   iam_instance_profile = aws_iam_instance_profile.jenkins_instance_profile.name
-  user_data            = templatefile("${path.module}/user_data.tpl", {})
+  user_data            = file("${path.module}/install_jenkins.sh")
   tags = {
     Name      = "jenkins"
     ManagedBy = "Terraform"

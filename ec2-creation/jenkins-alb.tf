@@ -4,7 +4,7 @@ resource "aws_lb" "jenkins_alb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.jenkins_sg.id]
-  subnets            = ["subnet-0e7036ba175b9e59b", "subnet-01be053443e82cc4d"]
+  subnets            = [aws_subnet.public-sub-1.id, aws_subnet.public-sub-2.id]
   enable_deletion_protection = false
 
   tags = {

@@ -1,5 +1,6 @@
 resource "aws_security_group" "jenkins_sg" {
   name        = "jenkins-security-group"
+  vpc_id      = aws_vpc.jenkins_vpc.id
   description = "Allow SSH and HTTP inbound, all outbound"
 
   ingress {

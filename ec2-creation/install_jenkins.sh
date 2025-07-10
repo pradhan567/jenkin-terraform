@@ -1,6 +1,8 @@
 #!/bin/bash
 # yum update -y
-yum install -y cronie
+sudo yum install -y amazon-ssm-agent
+sudo systemctl enable amazon-ssm-agent
+sudo systemctl start amazon-ssm-agent
 yum install docker -y
 systemctl start docker
 systemctl enable docker
